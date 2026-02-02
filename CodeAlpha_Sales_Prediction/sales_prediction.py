@@ -3,6 +3,7 @@
 # CodeAlpha Internship – Task 4
 # ------------------------------------------
 
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,7 +26,9 @@ print("\nMissing values:")
 print(df.isnull().sum())
 
 # ---- Exploratory Data Analysis ----
-sns.pairplot(df)
+os.makedirs("results", exist_ok=True)
+pairplot = sns.pairplot(df)
+pairplot.fig.savefig("results/pairplot_advertising_sales.png", dpi=150)
 plt.suptitle("Advertising Spend vs Sales", y=1.02)
 plt.show()
 
